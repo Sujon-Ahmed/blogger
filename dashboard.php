@@ -79,7 +79,7 @@
                                                         <td><?php echo $row->user_email;?></td>
                                                         <td><?php echo date('M-d-Y h:i A',strtotime($row->user_created_at));?></td>
                                                         <td>
-                                                        <a href="edit.php?id=<?php echo $row->id;?>" class="btn btn-info btn-sm">Update</a>
+                                                        <a href="edit_profile.php?id=<?php echo $row->id;?>" class="btn btn-info btn-sm">Update</a>
 
                                                         <a href="myblog.php?id=<?php echo $row->id;?>" class="btn btn-success btn-sm">Profile</a>
 
@@ -100,7 +100,7 @@
                         <div class="col-md-12">                  
                             <div class="card card-post mt-3">
                                 <div class="card-body">
-                                    <h5 class="author">Author Name <span class="float-right text-secondary update_time">1 min</span></h5>
+                                    <h5 class="author">Author Name<span class="float-right text-secondary update_time">1 min</span></h5>
                                     <p class="title text-secondary">Title Here</p>
                                     <hr class="w-25">
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cupiditate non eveniet voluptates natus ipsa odio corrupti asperiores! Temporibus et nam dolores nesciunt magni dolorem.</p>  
@@ -112,32 +112,20 @@
 
                                 </div>
                             </div>
-                            <div class="card card-post mt-3">
-                                <div class="card-body">
-                                    <h5 class="author">Author Name <span class="float-right text-secondary update_time">1 min</span></h5>
-                                    <p class="title text-secondary">Title Here</p>
-                                    <hr class="w-25">
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cupiditate non eveniet voluptates natus ipsa odio corrupti asperiores! Temporibus et nam dolores nesciunt magni dolorem.</p>  
-
-                                    <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
-                                </form>
-                                <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
-                                </form>
-
-                                </div>
-                            </div>                            
+                                                      
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="v-pills-created_post" role="tabpanel" aria-labelledby="v-pills-created_post-tab">
                         <div class="col-md-12">
-                        <div class="card card-status">
+                            <div class="card card-status">
                                 <div class="card-body">
-                                    <form action="#">
-                                        <label for="status">Create your status</label>
-                                        <input name="status" id="status" class="form-control " type="text" placeholder="What's on your mind , Admin" aria-label=".form-control-sm example"><br>
-                                        <button type="submit" class="post_btn"><i class="fa fa-pencil-alt"></i> Post</button>
-                                    </form>
+                                <form action="#">
+                                    <label for="status">Create your status</label>
+                                    <input name="status" id="status" class="form-control " type="text" placeholder="Enter your post title" aria-label=".form-control-sm example"><br>
+                                    <textarea name="status" placeholder="Whats on your mind" class="form-control" cols="30" rows="5"></textarea><br>
+                                    <button type="submit" class="post_btn"><i class="fa fa-pencil-alt"></i> Post</button>
+                                </form>
                                 </div>
                             </div>
                         </div>

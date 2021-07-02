@@ -1,4 +1,36 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id'])) {
+        header('location:login.php');
+    }
+       
+    require 'connection.php';
 
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+    //    $post_sql = "SELECT * FROM `post` WHERE user_id = '$id'";
+    //     $post_result = $con->query($post_sql);
+
+        $sql = "SELECT * FROM `users` WHERE id = '$id'";
+        $result = $con->query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_object()){
+                $id = $row->id;
+                $user_name = $row->user_name;
+                $user_email = $row->user_email;
+                $user_phone = $row->user_phone;
+                $date_of_bath = $row->date_of_bath;
+                $user_pass = $row->user_pass;
+                $user_about = $row->user_about;
+                $user_created_at = $row->user_created_at;
+            }
+        }
+
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +48,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
-        <a class="navbar-brand text-secondary" href="index.php" title="Blogger Home"><span class="fas fa-home"></span><strong> Blogger</strong></a>
+        <a class="navbar-brand text-secondary" href="index.php" title="Blogger Home"><span class="fas fa-blog"></span><strong> Blogger</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fa fa-bars"></i></span>
         </button>
@@ -24,7 +56,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
-            <a href="login.php"><img src="asset/img/avatar2.png" title="My Account" class="avatar2" alt="avatar"></a>
+            <a href="myblog.php"><img src="asset/img/avatar2.png" title="My Account" class="avatar2" alt="avatar"></a>
         </div>
     </nav>
 
@@ -49,47 +81,39 @@
                     <?php
                 }
             ?>
-                <div class="card login_form shadow-sm">
-                    <form action="insert.php" method="POST">
-                        <h5 class="card-header text-center mb-3">Register Here</h5>
+                <div class="card login_form shadow-sm mb-3">
+                    <form action="update.php" method="POST">
+                        <h5 class="card-header text-center mb-3">Users All Information</h5>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="user_name" class="form-label">User Name</label>
-                            <input type="text" class="form-control" name="user_name" placeholder="Enter user name" value="<?php echo  $user_name;?>">
-                        </div>
-                        <div class="mb-3 ml-2 mr-2">
-                            <label for="user_profession" class="form-label">User Profession</label>
-                            <input type="text" class="form-control" name="user_profession" placeholder="Enter user profession">
-                        </div>
-                        <div class="mb-3 ml-2 mr-2">
-                            <label for="user_location" class="form-label">User Location</label>
-                            <input type="text" class="form-control" name="user_location" placeholder="Enter user location">
+                            <input type="text" value="<?php echo $user_name;?>" class="form-control" name="user_name" placeholder="Enter user name">
                         </div>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="user_email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="user_email" placeholder="Enter your email">
+                            <input type="email" value="<?php echo $user_email;?>" class="form-control" name="user_email" placeholder="Enter your email">
                         </div>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="user_phone" class="form-label">User Phone</label>
-                            <input type="text" class="form-control" name="user_phone" placeholder="Enter your phone">
+                            <input type="text" value="<?php echo $user_phone;?>" class="form-control" name="user_phone" placeholder="Enter your phone">
                         </div>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="date_of_bath" class="form-label">Date of bath</label>
-                            <input type="date" class="form-control" name="date_of_bath" placeholder="Enter your bath date">
+                            <input type="date" value="<?php echo $date_of_bath;?>" class="form-control" name="date_of_bath" placeholder="Enter your bath date">
                         </div>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="user_pass" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="user_pass" placeholder="Enter your password">
+                            <input type="password" value="<?php echo $user_pass;?>" class="form-control" name="user_pass" placeholder="Enter your password">
                             <div class="form-text">We'll never share your password with anyone else.</div>
                         </div>
                         <div class="mb-3 ml-2 mr-2">
                         <label for="user_about" class="form-label">About Yourself</label><br>
-                            <textarea name="user_about" rows="5" style="width: 100%;padding:10px 0 0 10px;" placeholder="Say something about yourself..."></textarea>
+                            <textarea name="user_about" rows="5" style="width: 100%;padding:10px 0 0 10px;" placeholder="Say something about yourself..."><?php echo $user_about; ?></textarea>
                         </div>
 
                         <div class="mb-3 ml-2 mr-2">
-                        <input type="submit" name="submit" value="Submit" class="mr-2">
+                        <input type="submit" name="submit" class="btn btn-info btn-sm" value="Update" class="mr-2">
                         <input type="hidden" name="id" value="<?php echo $id;?>">
-                        <input type="reset" value="Reset">
+                        <input type="reset" class="btn btn-danger btn-sm" value="Reset">
                         </div>
                     </form>
                 </div>

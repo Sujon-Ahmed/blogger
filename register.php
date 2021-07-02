@@ -16,7 +16,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <a class="navbar-brand text-secondary" href="index.php" title="Blogger Home"><span class="fas fa-home"></span><strong> Blogger</strong></a>
+        <a class="navbar-brand text-secondary" href="index.php" title="Blogger Home"><span class="fas fa-blog"></span><strong> Blogger</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fa fa-bars"></i></span>
         </button>

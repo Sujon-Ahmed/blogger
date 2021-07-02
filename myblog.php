@@ -9,22 +9,11 @@
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
 
-       $sql = "SELECT * FROM `users` WHERE id = '$id'";
-        $result = $con->query($sql);
+       $post_sql = "SELECT * FROM `post` WHERE user_id = '$id'";
+        $post_result = $con->query($post_sql);
 
-      /*   $sql = "SELECT users.*,post.user_id AS log_name FROM users INNER JOIN post ON users.user_name = post.user_id";
+        $sql = "SELECT * FROM `users` WHERE id = '$id'";
         $result = $con->query($sql);
-        $user_id = $_SESSION['id'];
-        $user = "SELECT * FROM `post` WHERE id = '$user_id'";
-        $user_data = $con->query($user); 
-    
-        if($user_data->num_rows > 0){
-            while($data = $user_data->fetch_object()) {
-                $us_id = $data->id;
-                $user_name = $data->name;
-                $user_email = $data->email;
-            }
-        }*/
 
         if($result->num_rows > 0) {
             while($row = $result->fetch_object()){
@@ -185,13 +174,38 @@
                     <div class="card-body">
                        <form action="#">
                            <label for="status">Create your status</label>
-                        <input name="status" id="status" class="form-control " type="text" placeholder="Whats on your mind ,<?php echo $user_name;?>" aria-label=".form-control-sm example"><br>
+                           <input name="status" id="status" class="form-control " type="text" placeholder="Enter your post title" aria-label=".form-control-sm example"><br>
+                        <textarea name="status" placeholder="Whats on your mind" class="form-control" cols="30" rows="5"></textarea><br>
                         <button type="submit" class="post_btn"><i class="fa fa-pencil-alt"></i> Post</button>
                        </form>
                     </div>
                 </div>
+                <?php
+                    if($post_result->num_rows > 0){
+                        while($post_row = $post_result->fetch_object()) {
+                            ?>
 
+                           
                 <div class="card card-post mt-3">
+                    <div class="card-body">
+                        <h5 class="author"><?php echo $user_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($post_row->post_created_at));?></span></h5>
+                        <p class="title text-secondary"><?php echo $post_row->post_title;?></p>
+                        <hr class="w-25">
+                        <p><?php echo $post_row->post_body;?></p>  
+
+                        <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
+                       </form>
+                       <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
+                       </form>
+
+                    </div>
+                </div>
+                        <?php
+                        }
+                    }
+                ?>
+
+                <!-- <div class="card card-post mt-3">
                     <div class="card-body">
                         <h5 class="author"><?php echo $user_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($user_created_at));?></span></h5>
                         <p class="title text-secondary">Title Here</p>
@@ -204,21 +218,7 @@
                        </form>
 
                     </div>
-                </div>
-                <div class="card card-post mt-3">
-                    <div class="card-body">
-                        <h5 class="author"><?php echo $user_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($user_created_at));?></span></h5>
-                        <p class="title text-secondary">Title Here</p>
-                        <hr class="w-25">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cupiditate non eveniet voluptates natus ipsa odio corrupti asperiores! Temporibus et nam dolores nesciunt magni dolorem.</p>  
-
-                        <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
-                       </form>
-                       <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
-                       </form>
-
-                    </div>
-                </div>
+                </div> -->
 
                 
             </div>

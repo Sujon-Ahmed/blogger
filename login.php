@@ -1,4 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id'])) {
+        header('location:dashboard.php');
+    }
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +42,7 @@
                         <h5 class="card-header text-center mb-3">Login Here</h5>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control"">
+                            <input type="email" name="email" class="form-control">
                         </div>
                         <div class="mb-3 ml-2 mr-2">
                             <label for="password" class="form-label">Password</label>
