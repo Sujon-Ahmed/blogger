@@ -1,0 +1,269 @@
+::-webkit-scrollbar{
+    display: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans',Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    background: rgb(245, 247, 248);
+}
+/* style for navbar */
+.news,.account-settings,.message,.notifications{
+    display: none;
+    font-family: 'Josefin Sans',Arial, Helvetica, sans-serif;
+}
+@media(max-width:768px) {
+    .news,.account-settings,.message,.notifications{
+        display: inline-block;
+    }
+    .nav-link{
+        width: 70vw;
+        transition: all 0.3s linear;
+        -webkit-transition: all 0.3s linear;
+    }
+    .nav-link:hover{
+        background: #ddd;
+        border-radius: 30px;
+        width: 70vw;
+    }
+}
+@media(max-width:768px) {
+    sup.badge{
+        display: none;
+    }
+}
+/* style for navbar-brand */
+.navbar-brand{
+    margin-left: 25px;
+    font-family: 'Josefin Sans',Arial, Helvetica, sans-serif;
+}
+
+/* style for avatar2 */
+a img.avatar2{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+/* style for navbar-item */
+.nav-item a.nav-link i{
+    margin-left: 25px;
+}
+
+/* style for dropdown-menu */
+.dropdown-menu{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    outline: none;
+}
+.dropdown-menu .dropdown-item:hover{
+    background: #ddd;
+}
+
+/* style for icon */
+i.fas{
+    font-size: 18px;
+}
+span.fas{
+    font-size: 20px;
+}
+/* style for container */
+.container-fluid{
+    margin-top: 80px;
+}
+
+/* style for card */
+.card-profile img.card-img-top{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.card-profile{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+span.hr{
+    border: 1px solid #f2f2f2;
+    margin: 10px;
+ }
+.card-body i.fa{
+    color: rgb(77, 99, 111);
+}
+
+/* style for accordion */
+.accordion{
+    /* margin-top: 20px; */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+/* style for interests */
+.interests{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+.card-text a.newspaper{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(70, 108, 134);
+    color: white;
+}
+.card-text a.coding{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(55, 74, 83);
+    color: white;
+}
+.card-text a.game{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(102, 126, 138);
+    color: white;
+}
+.card-text a.friends{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(25, 78, 102);
+    color: white;
+}
+.card-text a.food{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(99, 166, 197);
+    color: white;
+}
+.card-text a.design{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(46, 93, 116);
+    color: white;
+}
+.card-text a.travel{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(15, 41, 53);
+    color: white;
+}
+.card-text a.photo{
+    font-size: 11px;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: rgb(7, 146, 211);
+    color: white;
+}
+
+/* style for alert */
+.alert{
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+/* style for card-status */
+.card-status{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.post_btn i.fas{
+    color: #fff;
+}
+.post_btn{
+    width: 80px;
+    height: 30px;
+    background: rgb(77, 99, 111);
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.post_btn i.fa{
+    color: #fff;
+}
+.like_btn{
+    width: 70px;
+    height: 30px;
+    background: rgb(77, 99, 111);
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.comment_btn{
+    width: 120px;
+    height: 30px;
+    background: rgb(77, 99, 111);
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.comment_btn i.fas{
+    color: #fff;
+}
+
+.card-post{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+/* style for update_time */
+span.update_time{
+    font-size: 15px;
+}
+.card-events{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+/* style for btn-info */
+button.holiday{
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    background: rgb(133, 166, 184);
+    color: #fff;
+    border: none;
+    outline: none;
+}
+button.holiday:hover{
+    background: rgb(77, 99, 111);
+}
+
+.friend-request{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+.friend-request img{
+    width: 100px;
+    height: 100px;
+}
+
+.ads{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+.footer{
+    background: hsl(206, 21%, 94%);
+}
+
+@media(max-width:768px) {
+    .card-events{
+        margin-top: 20px;
+    }
+}
+.login_form{
+    margin-top: 100px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+div img.author{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+}
