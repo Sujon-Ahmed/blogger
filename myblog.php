@@ -70,7 +70,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
-        <a class="navbar-brand text-secondary" href="#"><span class="fas fa-blog"></span><strong> MyBlog</strong></a>
+        <a class="navbar-brand text-secondary" href="index.php"><span class="fas fa-blog"></span><strong> MyBlog</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fa fa-bars"></i></span>
         </button>

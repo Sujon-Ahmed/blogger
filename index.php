@@ -60,10 +60,10 @@
             <div class="col-md-9">
                 <div class="card card-status">
                     <div class="card-body">
-                       <form action="#">
+                       <form action="login.php" method="POST">
                            <label for="status">Create your status</label>
-                        <input name="status" id="status" class="form-control " type="text" placeholder="What's on your mind ?" aria-label=".form-control-sm example"><br>
-                        <button type="submit" class="post_btn"><i class="fa fa-pencil-alt"></i> Post</button>
+                        <input disabled name="status" id="status" class="form-control " type="text" placeholder="What's on your mind ?" aria-label=".form-control-sm example"><br>
+                        <input type="submit" name="submit" value="Post" class="post_btn">
                        </form>
                     </div>
                 </div>
@@ -115,6 +115,11 @@
                 <p class="text-center px-2 my-3">&copy;Copyright 2021 All right Reserved. Design by blogger.</p>
             </div>
         </div> -->
+        <div class="row mt-3">
+            <div class="col-md-12 col-sm-12 footer">
+                <p class="text-center px-2 my-3">&copy;Copyright 2021 All right Reserved. Design by Blogger</p>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
