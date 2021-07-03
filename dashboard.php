@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
-            <div><a href="index.php" onclick="javascript:return confirm('Are you sure? leave this page.')"><img src="asset/img/avatar2.png" title="Log Out" class="author" alt="avatar"> </a><span class="mr-5"></span></div>
+            <div><a href="logout.php" onclick="javascript:return confirm('Are you sure? leave this page.')"><img src="asset/img/avatar2.png" title="Log Out" class="author" alt="avatar"> </a><span class="mr-5"></span></div>
         </div>
     </nav>
 
@@ -120,11 +120,12 @@
                         <div class="col-md-12">
                             <div class="card card-status">
                                 <div class="card-body">
-                                <form action="#">
+                                <form action="post_insert.php" method="POST">
                                     <label for="status">Create your status</label>
-                                    <input name="status" id="status" class="form-control " type="text" placeholder="Enter your post title" aria-label=".form-control-sm example"><br>
-                                    <textarea name="status" placeholder="Whats on your mind" class="form-control" cols="30" rows="5"></textarea><br>
-                                    <button type="submit" class="post_btn"><i class="fa fa-pencil-alt"></i> Post</button>
+                                    <input name="title" id="status" class="form-control " type="text" placeholder="Enter your post title" aria-label=".form-control-sm example"><br>
+                                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id'];?>">
+                                    <textarea name="body" placeholder="Whats on your mind" class="form-control" cols="30" rows="5"></textarea><br>
+                                    <input type="submit" name="submit" value="submit" class="post_btn"> 
                                 </form>
                                 </div>
                             </div>

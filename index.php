@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'connection.php';
-    $post_all_sql = "SELECT post.*,users.user_name AS author_name FROM post INNER JOIN users ON post.user_id = users.id";
+    $post_all_sql = "SELECT post.*,users.user_name AS author_name FROM post INNER JOIN users ON post.user_id = users.id  ORDER BY id DESC";
 
     $all_result = $con->query($post_all_sql);
 

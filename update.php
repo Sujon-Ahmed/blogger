@@ -8,7 +8,7 @@
             $data = htmlspecialchars($data);
             return $data;
         }
-
+        $id = $_POST['id'];
         $user_name = input_test($_POST['user_name']);
         $user_email = input_test($_POST['user_email']);
         $user_phone = input_test($_POST['user_phone']);
@@ -21,14 +21,14 @@
             $sql = "UPDATE `users` SET `user_name`='$user_name',`user_email`='$user_email',`user_phone`='$user_phone',`date_of_bath`='$date_of_bath',`user_pass`='$user_pass',`user_about`='$user_about' WHERE id = '$id'";
          
             if($con->query($sql) == true) {
-                header('location:myblog.php?id=insert=success');
+                header('location:edit_profile.php?id='.$id.'&update=success');
             }
             else{
                 echo 'Something Went Wrong!';
             }
         }
         else{
-            header('location:edit_profile.php?valid=error');
+            header('location:edit_profile.php?id='.$id.'&valid=error');
         }
     }
     else{

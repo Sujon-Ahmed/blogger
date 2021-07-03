@@ -9,7 +9,8 @@
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
 
-       $post_sql = "SELECT * FROM `post` WHERE user_id = '$id'";
+
+       $post_sql = "SELECT * FROM `post` WHERE  user_id = '$id'  ORDER BY id DESC";
         $post_result = $con->query($post_sql);
 
         $sql = "SELECT * FROM `users` WHERE id = '$id'";
@@ -28,6 +29,27 @@
             }
         }
 
+    }
+    else{
+        $id = $_SESSION['id'];
+        $post_sql = "SELECT * FROM `post` WHERE user_id = '$id'";
+        $post_result = $con->query($post_sql);
+
+        $sql = "SELECT * FROM `users` WHERE id = '$id'";
+        $result = $con->query($sql);
+
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_object()){
+                $id = $row->id;
+                $user_name = $row->user_name;
+                $user_email = $row->user_email;
+                $user_phone = $row->user_phone;
+                $date_of_bath = $row->date_of_bath;
+                $user_pass = $row->user_pass;
+                $user_about = $row->user_about;
+                $user_created_at = $row->user_created_at;
+            }
+        }
     }
 
 ?>
@@ -170,16 +192,17 @@
 
             </div>
             <div class="col-md-7">
-                <div class="card card-status">
-                    <div class="card-body">
-                       <form action="#">
-                           <label for="status">Create your status</label>
-                           <input name="status" id="status" class="form-control " type="text" placeholder="Enter your post title" aria-label=".form-control-sm example"><br>
-                        <textarea name="status" placeholder="Whats on your mind" class="form-control" cols="30" rows="5"></textarea><br>
-                        <button type="submit" class="post_btn"><i class="fa fa-pencil-alt"></i> Post</button>
-                       </form>
-                    </div>
-                </div>
+            <div class="card card-status">
+                                <div class="card-body">
+                                <form action="profile_insert.php" method="POST">
+                                    <label for="status">Create your status</label>
+                                    <input name="title" id="status" class="form-control " type="text" placeholder="Enter your post title" aria-label=".form-control-sm example"><br>
+                                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id'];?>">
+                                    <textarea name="body" placeholder="Whats on your mind" class="form-control" cols="30" rows="5"></textarea><br>
+                                    <input type="submit" name="submit" value="submit" class="post_btn"> 
+                                </form>
+                                </div>
+                            </div>
                 <?php
                     if($post_result->num_rows > 0){
                         while($post_row = $post_result->fetch_object()) {
