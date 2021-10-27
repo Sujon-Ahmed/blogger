@@ -1,10 +1,8 @@
 <?php
     session_start();
-    require 'connection.php';
+    require 'connection.php';    
     $post_all_sql = "SELECT post.*,users.user_name AS author_name FROM post INNER JOIN users ON post.user_id = users.id  ORDER BY id DESC";
-
     $all_result = $con->query($post_all_sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -127,5 +125,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="asset/js/bootstrap.min.js"></script>  
   <script src="asset/js/jquery-3.4.1.min.js"></script>  
+  
 </body>
 </html>

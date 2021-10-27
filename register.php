@@ -49,7 +49,7 @@
                         <?php
                     }
                 ?>
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4 ">
                     <form action="insert.php" method="POST">
                         <h5 class="card-header text-center mb-3">Register Here</h5>
                         <div class="mb-3 ml-2 mr-2">
@@ -77,11 +77,11 @@
                         <label for="user_about" class="form-label">About Yourself</label><br>
                             <textarea name="user_about" rows="5" style="width: 100%;padding:10px 0 0 10px;" placeholder="Say something about yourself..."></textarea>
                         </div>
-
                         <div class="mb-3 ml-2 mr-2">
                         <input type="submit" class="btn btn-sm btn-primary" name="submit" value="Submit" class="mr-2">
                         <input type="reset" class="btn btn-sm btn-danger" value="Reset">
-                    </form>
+                    </form><br><br>
+                    <a href="login.php">Already have an account</a>
                 </div>
             </div>
         </div>

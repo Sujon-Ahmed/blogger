@@ -215,7 +215,7 @@
                         <p class="title text-secondary"><?php echo $post_row->post_title;?></p>
                         <hr class="w-25">
                         <p><?php echo $post_row->post_body;?></p>  
-
+                        
                         <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
                        </form>
                        <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
