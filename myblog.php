@@ -47,6 +47,7 @@
                 $date_of_bath = $row->date_of_bath;
                 $user_pass = $row->user_pass;
                 $user_about = $row->user_about;
+                $role_as = $row->role_as;
                 $user_created_at = $row->user_created_at;
             }
         }
@@ -66,6 +67,12 @@
     <!-- Load an icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .hidden-action {
+            /* background-color: #333; */
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -76,16 +83,8 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" title="News" href="#"><i class="fa fa-globe-asia"><span class="ml-2 news">News</span></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" title="Account Settings" href="#"><i class="fa fa-user"><span class="ml-2 account-settings">Account Settings</span></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" title="Message" href="#"><i class="fa fa-envelope"><span class="ml-2 message">Message</span></i></a>
-            </li>
+            <ul class="navbar-nav ms-auto">
+            
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" title="Notifications" id="navbarDropdown" role="button" data-toggle="dropdown" >
                     <i class="fa fa-bell"><sup class="badge badge-success badge-pill">3</sup><span class="ml-2 notifications">Notifications</span></i>
@@ -96,8 +95,24 @@
                 <a class="dropdown-item" href="#">Jane like your post</a>
                 </div>
             </li>
-            </ul>
-            <a href="dashboard.php"><img src="asset/img/avatar2.png" title="My Dashboard" class="avatar2" alt="avatar"></a>
+            <li class="nav-item">
+                <a class="nav-link" title="Blogs" href="index.php"><i class="fa fa-globe-asia"><span class="ml-2 news">News</span></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" title="Message" href="#"><i class="fa fa-envelope"><span class="ml-2 message">Message</span></i></a>
+            </li>
+            
+            <?php if ($role_as == 1) { ?>
+                 <li class="nav-item">
+                    <a class="nav-link" title="Dashboard" href="dashboard.php"><i class="fa fa-users"><span class="ml-2 message">Dashboard</span></i></a>
+                </li>                
+            <?php } ?>
+            
+            <li class="nav-item">
+                <a onclick="return confirm('Are You Sure Logout?')" class="nav-link" title="Logout" href="logout.php"><i class="fa fa-user"><span class="ml-2 account-settings">Account Settings</span></i></a>
+            </li>
+        </ul>
+            <!-- <a href="logout.php"><img src="asset/img/avatar2.png" title="Logout" class="avatar2" alt="avatar"></a> -->
         </div>
     </nav>
 
@@ -211,15 +226,15 @@
                            
                 <div class="card card-post mt-3">
                     <div class="card-body">
-                        <h5 class="author"><?php echo $user_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($post_row->post_created_at));?></span></h5>
-                        <p class="title text-secondary"><?php echo $post_row->post_title;?></p>
-                        <hr class="w-25">
+                        <h5 class="author"><?php echo $user_name;?><span class="float-end"><i class="fa fa-ellipsis-h icon" style="cursor: pointer;" aria-hidden="true"></i></span></h5>
+                        <div class="hidden-action float-end" style="text-align: right;">
+                            <a href="blog-delete.php?id=<?= $post_row->id  ?>">Delete</a>
+                        </div>
+                        <span class="text-secondary update_time"><i><?php echo date('M-d-Y h:i A',strtotime($post_row->post_created_at));?></i></span>
+                        <h6 class="title text-secondary mt-2"><?php echo $post_row->post_title;?></h6>
+                        <!-- <hr class="w-25"> -->
                         <p><?php echo $post_row->post_body;?></p>  
                         
-                        <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
-                       </form>
-                       <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
-                       </form>
 
                     </div>
                 </div>
@@ -228,22 +243,7 @@
                     }
                 ?>
 
-                <!-- <div class="card card-post mt-3">
-                    <div class="card-body">
-                        <h5 class="author"><?php echo $user_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($user_created_at));?></span></h5>
-                        <p class="title text-secondary">Title Here</p>
-                        <hr class="w-25">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cupiditate non eveniet voluptates natus ipsa odio corrupti asperiores! Temporibus et nam dolores nesciunt magni dolorem.</p>  
-
-                        <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
-                       </form>
-                       <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
-                       </form>
-
-                    </div>
-                </div> -->
-
-                
+                               
             </div>
             <div class="col-md-2">
                 <div class="card card-events text-center">
@@ -274,7 +274,7 @@
 
         <div class="row mt-3">
             <div class="col-md-12 col-sm-12 footer">
-                <p class="text-center px-2 my-3">&copy;Copyright 2021 All right Reserved. Design by Blogger</p>
+            <p class="text-center px-2 my-3">&copy;Copyright 2021 All right Reserved. Develop by <a target="_blank" href="https://github.com/Sujon-Ahmed">Sujon Ahmed</a></p>
             </div>
         </div>
     </div>
@@ -284,5 +284,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="asset/js/bootstrap.min.js"></script>  
   <script src="asset/js/jquery-3.4.1.min.js"></script>  
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+      $('.icon').click(function(){
+        $('.hidden-action').toggle();
+      });
+  </script>
 </body>
 </html>

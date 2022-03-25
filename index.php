@@ -29,7 +29,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" title="News" href="#"><i class="fa fa-globe-asia"><span class="ml-2 news">News</span></i></a>
             </li>
             <li class="nav-item">
@@ -47,7 +47,7 @@
                 <a class="dropdown-item" href="#">John posted on your wall</a>
                 <a class="dropdown-item" href="#">Jane like your post</a>
                 </div>
-            </li>
+            </li> -->
             </ul>
             <a href="login.php"><img src="asset/img/avatar2.png" title="Login" class="avatar2" alt="avatar"></a>
         </div>
@@ -73,15 +73,18 @@
                             
                 <div class="card card-post mt-3">
                     <div class="card-body">
-                        <h5 class="author"><?php echo $post_row->author_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($post_row->post_created_at));?></span></h5>
-                        <p class="title text-secondary"><?php echo $post_row->post_title;?></p>
-                        <hr class="w-25">
+                        <h5 class="author"> <img src="asset/img/avatar3.png" class="img-fluid" style="width: 40px; border-radius:50%;" alt=""> <?php echo $post_row->author_name;?> <span class="float-right text-secondary update_time"><?php echo date('M-d-Y h:i A',strtotime($post_row->post_created_at));?></span></h5>
+                        <h6 class="title text-secondary"><?php echo $post_row->post_title;?></h6>
+                        <!-- <hr class="w-25"> -->
                         <p><?php echo $post_row->post_body;?></p>  
 
-                        <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
+                        <!-- <button type="submit" class="like_btn"><i class="fas fa-thumbs-up"></i> Like</button>
                        </form>
                        <button type="submit" class="comment_btn"><i class="fas fa-comment"></i> Message</button>
-                       </form>
+                       </form> -->
+                       <!-- comment section -->
+                       <!-- <hr style="border-style: dashed;"> -->
+                       <div class="fb-comments" data-href="https://developers.facebook.com/localhost/blogger/index.php?id=<?= $post_row->id ?>" data-width="100%" data-numposts="5"></div>
 
                     </div>
                 </div>
@@ -115,7 +118,7 @@
         </div> -->
         <div class="row mt-3">
             <div class="col-md-12 col-sm-12 footer">
-                <p class="text-center px-2 my-3">&copy;Copyright 2021 All right Reserved. Design by Blogger</p>
+                <p class="text-center px-2 my-3">&copy;Copyright 2021 All right Reserved. Develop by <a target="_blank" href="https://github.com/Sujon-Ahmed">Sujon Ahmed</a></p>
             </div>
         </div>
     </div>
@@ -125,6 +128,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="asset/js/bootstrap.min.js"></script>  
   <script src="asset/js/jquery-3.4.1.min.js"></script>  
-  
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="dbihROYy"></script>  
 </body>
 </html>

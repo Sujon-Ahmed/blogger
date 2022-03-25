@@ -19,7 +19,7 @@
             if($password === md5($user_pass)) {
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $name;
-                header('location:dashboard.php');
+                header('location:myblog.php');
             }
             else{
                 header('location:login.php?pass=error');
